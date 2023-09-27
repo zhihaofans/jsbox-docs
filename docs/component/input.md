@@ -9,7 +9,7 @@
     type: $kbType.search,
     darkKeyboard: true,
   },
-  layout: function(make, view) {
+  layout: (make, view) => {
     make.center.equalTo(view.super)
     make.size.equalTo($size(100, 32))
   }
@@ -48,7 +48,7 @@ secure | boolean | 读写 | 是否密码框
 `changed` 事件可以在文本变化时回调：
 
 ```js
-changed: function(sender) {
+changed: sender => {
 
 }
 ```
@@ -58,7 +58,7 @@ changed: function(sender) {
 `returned` 事件在回车键按下时调用：
 
 ```js
-returned: function(sender) {
+returned: sender => {
 
 }
 ```
@@ -68,7 +68,7 @@ returned: function(sender) {
 `didBeginEditing` 事件在开始编辑时调用：
 
 ```js
-didBeginEditing: function(sender) {
+didBeginEditing: sender => {
 
 }
 ```
@@ -78,7 +78,7 @@ didBeginEditing: function(sender) {
 `didEndEditing` 事件在结束编辑时调用：
 
 ```js
-didEndEditing: function(sender) {
+didEndEditing: sender => {
   
 }
 ```
@@ -141,7 +141,7 @@ $ui.render({
 $input.text({
   type: $kbType.number,
   placeholder: "Input a number",
-  handler: function(text) {
+  handler: text => {
 
   }
 })
@@ -155,7 +155,7 @@ $input.text({
 $input.speech({
   locale: "en-US", // 可选
   autoFinish: false, // 可选
-  handler: function(text) {
+  handler: text => {
 
   }
 })

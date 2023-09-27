@@ -8,7 +8,7 @@
   props: {
     loading: true
   },
-  layout: function(make, view) {
+  layout: (make, view) => {
     make.center.equalTo(view.super)
   }
 }

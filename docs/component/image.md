@@ -8,7 +8,7 @@
   props: {
     src: "https://images.apple.com/v/ios/what-is/b/images/performance_large.jpg"
   },
-  layout: function(make, view) {
+  layout: (make, view) => {
     make.center.equalTo(view.super)
     make.size.equalTo($size(100, 100))
   }
@@ -25,7 +25,7 @@ src 同样也支持 `data:image` 开头的 base64 字符串格式，例如：
   props: {
     src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAASCAMAAAB7LJ7rAAAANlBMVEUAAABnZ2dmZmZmZmZnZ2dmZmZmZmZmZmZnZ2dnZ2dnZ2dmZmZoaGhnZ2dnZ2dubm5paWlmZmbvpwLOAAAAEXRSTlMA9h6lQ95r4cmLdHNbTzksJ9o8+Y0AAABcSURBVCjPhc1JDoAwFAJQWus8cv/LqkkjMXwjCxa8BfjLWuI9L/nqhmwiLYnpAMjqpuQMDI+bcgNyW921A+Sxyl3NXeWu7lL3WOXS0Ck1N3WXut/HEz6z92l8Lyf1mAh1wPbVFAAAAABJRU5ErkJggg=="
   },
-  layout: function(make, view) {
+  layout: (make, view) => {
     make.center.equalTo(view.super)
     make.size.equalTo($size(100, 100))
   }

@@ -98,7 +98,7 @@ $ui.render({
                   y: {
                     step: 0.05
                   },
-                  z: function(x, y) {
+                  z: (x, y) => {
                     if (Math.abs(x) < 0.1 && Math.abs(y) < 0.1) {
                       return "-";
                     }

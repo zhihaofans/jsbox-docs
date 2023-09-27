@@ -29,7 +29,7 @@
     interval: 3,
     radius: 5.0
   },
-  layout: function(make, view) {
+  layout: (make, view) => {
     make.left.right.inset(10)
     make.centerY.equalTo(view.super)
     make.height.equalTo(320)
@@ -53,7 +53,7 @@ pageControl | $view | 只读 | 页面控制组件
 页面改变时将会调用 changed:
 
 ```js
-changed: function(sender) {
+changed: sender => {
   
 }
 ```

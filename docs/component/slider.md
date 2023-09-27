@@ -10,7 +10,7 @@
     max: 1.0,
     min: 0.0
   },
-  layout: function(make, view) {
+  layout: (make, view) => {
     make.center.equalTo(view.super)
     make.width.equalTo(100)
   }
@@ -36,7 +36,7 @@ thumbColor | $color | 读写 | 滑块颜色
 `changed` 事件在数值变化时回调：
 
 ```js
-changed: function(sender) {
+changed: sender => {
 
 }
 ```

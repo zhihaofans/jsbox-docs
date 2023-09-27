@@ -121,7 +121,7 @@ allowsLinkPreview | bool | 读写 | 是否允许链接预览
 ```js
 webView.eval({
   script: "var sum = 1 + 2",
-  handler: function(result, error) {
+  handler: (result, error) => {
 
   }
 })
@@ -140,7 +140,7 @@ const {result, error} = await webView.exec("1 + 1");
 `didClose` 会在网页关闭时回调：
 
 ```js
-didClose: function(sender) {
+didClose: sender => {
 
 }
 ```
@@ -150,7 +150,7 @@ didClose: function(sender) {
 `decideNavigation` 可以决定是否加载网页，用于拦截某些请求：
 
 ```js
-decideNavigation: function(sender, action) {
+decideNavigation: (sender, action) => {
   if (action.requestURL === "https://apple.com") {
     return false
   }
@@ -163,7 +163,7 @@ decideNavigation: function(sender, action) {
 `didStart` 在网页开始加载时回调：
 
 ```js
-didStart: function(sender, navigation) {
+didStart: (sender, navigation) => {
 
 }
 ```
@@ -173,7 +173,7 @@ didStart: function(sender, navigation) {
 `didReceiveServerRedirect` 在收到服务器重定向时回调：
 
 ```js
-didReceiveServerRedirect: function(sender, navigation) {
+didReceiveServerRedirect: (sender, navigation) => {
 
 }
 ```
@@ -183,7 +183,7 @@ didReceiveServerRedirect: function(sender, navigation) {
 `didFinish` 在网页成功加载时调用：
 
 ```js
-didFinish: function(sender, navigation) {
+didFinish: (sender, navigation) => {
 
 }
 ```
@@ -193,7 +193,7 @@ didFinish: function(sender, navigation) {
 `didFail` 在网页加载失败时调用：
 
 ```js
-didFail: function(sender, navigation, error) {
+didFail: (sender, navigation, error) => {
 
 }
 ```
@@ -203,7 +203,7 @@ didFail: function(sender, navigation, error) {
 `didSendRequest` 在页面 JavaScript 发送了 XMLHttpRequest 时候调用：
 
 ```js
-didSendRequest: function(request) {
+didSendRequest: request => {
   var method = request.method
   var url = request.url
   var header = request.header
@@ -217,11 +217,11 @@ web 组件通过向 WebView 注入 JavaScript 来控制页面的行为，只需�
 
 ```js
 props: {
-  script: function() {
+  script: () => {
     var images = document.getElementsByTagName("img")
     for (var i=0; i<images.length; ++i) {
       var element = images[i]
-      element.onclick = function(event) {
+      element.onclick = event => {
         var source = event.target || event.srcElement
         $notify("share", {"url": source.getAttribute("data-original")})
         return false
@@ -247,12 +247,12 @@ props: {
 
 ```js
 props: {
-  script: function() {
+  script: () => {
     $notify("customEvent", {"key": "value"})
   }
 },
 events: {
-  customEvent: function(object) {
+  customEvent: object => {
     // object = {"key": "value"}
   }
 }
@@ -273,12 +273,12 @@ $ui.render({
       props: {
         title: "搜索"
       },
-      layout: function(make) {
+      layout: make => {
         make.right.top.inset(10)
         make.size.equalTo($size(64, 32))
       },
       events: {
-        tapped: function(sender) {
+        tapped: sender => {
           search()
         }
       }
@@ -288,13 +288,13 @@ $ui.render({
       props: {
         placeholder: "输入关键字"
       },
-      layout: function(make) {
+      layout: make => {
         make.top.left.inset(10)
         make.right.equalTo($("button").left).offset(-10)
         make.height.equalTo($("button"))
       },
       events: {
-        returned: function(sender) {
+        returned: sender => {
           search()
         }
       }
@@ -304,15 +304,15 @@ $ui.render({
       props: {
         script: "for(var images=document.getElementsByTagName(\"img\"),i=0;i<images.length;++i){var element=images[i];element.onclick=function(e){var t=e.target||e.srcElement;return $notify(\"share\",{url:t.getAttribute(\"data-original\")}),!1}}"
       },
-      layout: function(make) {
+      layout: make => {
         make.left.bottom.right.equalTo(0)
         make.top.equalTo($("input").bottom).offset(10)
       },
       events: {
-        share: function(object) {
+        share: object => {
           $http.download({
             url: `http:${object.url}`,
-            handler: function(resp) {
+            handler: resp => {
               $share.universal(resp.data)
             }
           })

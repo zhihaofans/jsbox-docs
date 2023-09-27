@@ -8,7 +8,7 @@
   props: {
     on: true
   },
-  layout: function(make, view) {
+  layout: (make, view) => {
     make.center.equalTo(view.super)
   }
 }
@@ -29,7 +29,7 @@ thumbColor | $color | 读写 | 滑块颜色
 `changed` 事件在状态变化时回调：
 
 ```js
-changed: function(sender) {
+changed: sender => {
   
 }
 ```

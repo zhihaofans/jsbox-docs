@@ -117,12 +117,12 @@ data: [
           title: "Button",
           selectable: false
         },
-        layout: function(make, view) {
+        layout: (make, view) => {
           make.center.equalTo(view.super)
           make.width.equalTo(64)
         },
         events: {
-          tapped: function(sender) {
+          tapped: sender => {
             $ui.toast("Tapped")
           }
         }
@@ -176,13 +176,13 @@ actions: [
   {
     title: "delete",
     color: $color("gray"), // default to gray
-    handler: function(sender, indexPath) {
+    handler: (sender, indexPath) => {
 
     }
   },
   {
     title: "share",
-    handler: function(sender, indexPath) {
+    handler: (sender, indexPath) => {
 
     }
   }
@@ -194,7 +194,7 @@ actions: [
 可以通过 `swipeEnabled` 函数来决定某一行是否能被滑动：
 
 ```js
-swipeEnabled: function(sender, indexPath) {
+swipeEnabled: (sender, indexPath) => {
   return indexPath.row > 0;
 }
 ```
@@ -243,7 +243,7 @@ const cell = tableView.cell($indexPath(0, 0));
 `rowHeight` 可以动态地为每一行指定行高，会覆盖 props 里面那个静态值：
 
 ```js
-rowHeight: function(sender, indexPath) {
+rowHeight: (sender, indexPath) => {
   if (indexPath.row == 0) {
     return 88.0
   } else {
@@ -271,7 +271,7 @@ sectionTitleHeight: (sender, section) => {
 `didSelect` 在点击某一行时回调：
 
 ```js
-didSelect: function(sender, indexPath, data) {
+didSelect: (sender, indexPath, data) => {
 
 }
 ```
@@ -281,7 +281,7 @@ didSelect: function(sender, indexPath, data) {
 `didLongPress` 在长按某一行时回调：
 
 ```js
-didLongPress: function(sender, indexPath, data) {
+didLongPress: (sender, indexPath, data) => {
 
 }
 ```
@@ -291,7 +291,7 @@ didLongPress: function(sender, indexPath, data) {
 按照顺序获得列表的每一项：
 
 ```js
-forEachItem: function(view, indexPath) {
+forEachItem: (view, indexPath) => {
   
 }
 ```
@@ -393,7 +393,7 @@ props: {
 用户触发了长按排序操作：
 
 ```js
-reorderBegan: function(indexPath) {
+reorderBegan: indexPath => {
 
 }
 ```
@@ -401,7 +401,7 @@ reorderBegan: function(indexPath) {
 用户把一个列表项从 `fromIndex` 移动到了 `toIndex`:
 
 ```js
-reorderMoved: function(fromIndexPath, toIndexPath) {
+reorderMoved: (fromIndexPath, toIndexPath) => {
   // Reorder your data source here
 }
 ```
@@ -409,7 +409,7 @@ reorderMoved: function(fromIndexPath, toIndexPath) {
 用户结束了列表项的重新排序：
 
 ```js
-reorderFinished: function(data) {
+reorderFinished: data => {
   // Save your data source here
 }
 ```
@@ -417,7 +417,7 @@ reorderFinished: function(data) {
 可以通过 `canMoveItem` 来决定是否能被移动：
 
 ```js
-canMoveItem: function(sender, indexPath) {
+canMoveItem: (sender, indexPath) => {
   return indexPath.row > 0;
 }
 ```
@@ -441,7 +441,7 @@ $ui.render({
       props: { data },
       layout: $layout.fill,
       events: {
-        didReachBottom: function(sender) {
+        didReachBottom: sender =>{
           $ui.toast("fetching...")
           $delay(1.5, () => {
             sender.endFetchingMore()

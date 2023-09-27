@@ -151,7 +151,7 @@ const cell = matrix.cell($indexPath(0, 0));
 `didSelect` 事件在元素被点击时回调：
 
 ```js
-didSelect: function(sender, indexPath, data) {
+didSelect: (sender, indexPath, data) => {
 
 }
 ```
@@ -161,7 +161,7 @@ didSelect: function(sender, indexPath, data) {
 `didLongPress` 在长按某一行时回调：
 
 ```js
-didLongPress: function(sender, indexPath, data) {
+didLongPress: (sender, indexPath, data) => {
 
 }
 ```
@@ -173,7 +173,7 @@ didLongPress: function(sender, indexPath, data) {
 按照顺序获得矩阵的每一项：
 
 ```js
-forEachItem: function(view, indexPath) {
+forEachItem: (view, indexPath) => {
   
 }
 ```
@@ -183,7 +183,7 @@ forEachItem: function(view, indexPath) {
 自定义高亮效果：
 
 ```js
-highlighted: function(view) {
+highlighted: view => {
 
 }
 ```
@@ -193,7 +193,7 @@ highlighted: function(view) {
 设置动态的 item 大小：
 
 ```js
-itemSize: function(sender, indexPath) {
+itemSize: (sender, indexPath) => {
   var index = indexPath.item + 1;
   return $size(40 * index, 40 * index);
 }
@@ -288,7 +288,7 @@ props: {
 用户触发了长按排序操作：
 
 ```js
-reorderBegan: function(indexPath) {
+reorderBegan: indexPath => {
 
 }
 ```
@@ -296,7 +296,7 @@ reorderBegan: function(indexPath) {
 用户把一个项目从 `fromIndex` 移动到了 `toIndex`:
 
 ```js
-reorderMoved: function(fromIndexPath, toIndexPath) {
+reorderMoved: (fromIndexPath, toIndexPath) => {
   // Reorder your data source here
 }
 ```
@@ -304,7 +304,7 @@ reorderMoved: function(fromIndexPath, toIndexPath) {
 用户结束了重新排序：
 
 ```js
-reorderFinished: function(data) {
+reorderFinished: data => {
   // Save your data source here
 }
 ```
@@ -312,7 +312,7 @@ reorderFinished: function(data) {
 可以通过 `canMoveItem` 来决定是否能被移动：
 
 ```js
-canMoveItem: function(sender, indexPath) {
+canMoveItem: (sender, indexPath) => {
   return indexPath.row > 0;
 }
 ```

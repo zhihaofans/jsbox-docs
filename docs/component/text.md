@@ -45,7 +45,7 @@ insets | $insets | 读写 | 边距
 `didBeginEditing` 在开始编辑后回调：
 
 ```js
-didBeginEditing: function(sender) {
+didBeginEditing: sender => {
 
 }
 ```
@@ -55,7 +55,7 @@ didBeginEditing: function(sender) {
 `didEndEditing` 在结束编辑后回调：
 
 ```js
-didEndEditing: function(sender) {
+didEndEditing: sender => {
   
 }
 ```
@@ -65,7 +65,7 @@ didEndEditing: function(sender) {
 `didChange` 在内容变化时回调：
 
 ```js
-didChange: function(sender) {
+didChange: sender => {
 
 }
 ```
@@ -75,7 +75,7 @@ didChange: function(sender) {
 `didChangeSelection` 在选择区域变化时回调：
 
 ```js
-didChangeSelection: function(sender) {
+didChangeSelection: sender => {
 
 }
 ```

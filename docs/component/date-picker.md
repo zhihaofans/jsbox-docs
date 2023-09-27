@@ -5,7 +5,7 @@
 ```js
 {
   type: "date-picker",
-  layout: function(make) {
+  layout: make => {
     make.left.top.right.equalTo(0)
   }
 }
@@ -28,7 +28,7 @@ interval | number | 读写 | 步长（分钟）
 `changed` 事件在当前值变化时回调：
 
 ```js
-changed: function(sender) {
+changed: sender => {
   
 }
 ```

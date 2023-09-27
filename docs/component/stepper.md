@@ -10,12 +10,12 @@
     min: 1,
     value: 5
   },
-  layout: function(make, view) {
+  layout: (make, view) => {
     make.centerX.equalTo(view.super)
     make.top.equalTo(24)
   },
   events: {
-    changed: function(sender) {
+    changed: sender => {
 
     }
   }
@@ -42,7 +42,7 @@ continuous | boolean | 读写 | 连续响应事件
 `changed` 事件在数值变化时回调：
 
 ```js
-changed: function(sender) {
+changed: sender => {
   
 }
 ```

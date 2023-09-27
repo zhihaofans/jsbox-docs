@@ -13,7 +13,7 @@ $ui.render({
       props: {
         view: label
       },
-      layout: function(make, view) {
+      layout: (make, view) =>{
         make.center.equalTo(view.super);
       }
     }

@@ -7,7 +7,7 @@
   type: "canvas",
   layout: $layout.fill,
   events: {
-    draw: function(view, ctx) {
+    draw: (view, ctx) => {
       var centerX = view.frame.width * 0.5
       var centerY = view.frame.height * 0.3
       var radius = 50.0

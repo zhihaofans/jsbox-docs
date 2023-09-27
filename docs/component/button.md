@@ -8,7 +8,7 @@
   props: {
     title: "Click"
   },
-  layout: function(make, view) {
+  layout: (make, view) => {
     make.center.equalTo(view.super)
   }
 }
@@ -59,7 +59,7 @@ source: {
 
 ```js
 events: {
-  tapped: function(sender) {
+  tapped: sender => {
     
   }
 }

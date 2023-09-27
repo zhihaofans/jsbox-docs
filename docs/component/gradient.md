@@ -16,7 +16,7 @@ $ui.render({
         startPoint: $point(0, 0),
         endPoint: $point(1, 1)
       },
-      layout: function(make, view) {
+      layout: (make, view) => {
         make.left.top.equalTo(0)
         make.size.equalTo($size(100, 100))
       }

@@ -8,7 +8,7 @@
   props: {
     value: 0.5
   },
-  layout: function(make, view) {
+  layout: (make, view) => {
     make.center.equalTo(view.super)
     make.width.equalTo(100)
   }

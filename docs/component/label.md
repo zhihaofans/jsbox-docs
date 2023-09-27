@@ -9,7 +9,7 @@
     text: "Hello, World!",
     align: $align.center
   },
-  layout: function(make, view) {
+  layout: (make, view) => {
     make.center.equalTo(view.super)
   }
 }

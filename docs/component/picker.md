@@ -8,7 +8,7 @@
   props: {
     items: Array(3).fill(Array.from(Array(256).keys()))
   },
-  layout: function(make) {
+  layout: make =>{
     make.left.top.right.equalTo(0)
   }
 }
@@ -68,7 +68,7 @@ selectedRows | object | 只读 | 选中的所有序号
 `changed` 事件在当前值变化时回调：
 
 ```js
-changed: function(sender) {
+changed: sender => {
   
 }
 ```

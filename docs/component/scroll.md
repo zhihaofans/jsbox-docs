@@ -5,7 +5,7 @@
 ```js
 {
   type: "scroll",
-  layout: function(make, view) {
+  layout: (make, view) => {
     make.center.equalTo(view.super)
     make.size.equalTo($size(100, 500))
   },
@@ -39,7 +39,7 @@ $ui.render({
         text,
         lines: 0
       },
-      layout: function(make, view) {
+      layout: (make, view) => {
         make.width.equalTo(view.super)
         make.top.left.inset(0)
         make.height.equalTo(1000)
@@ -110,7 +110,7 @@ $("scroll").scrollToOffset($point(0, 100));
 `pulled` 方法将触发下拉刷新：
 
 ```js
-pulled: function(sender) {
+pulled: sender => {
   
 }
 ```
@@ -120,7 +120,7 @@ pulled: function(sender) {
 `didScroll` 在视图滚动时回调：
 
 ```js
-didScroll: function(sender) {
+didScroll: sender => {
 
 }
 ```
@@ -130,7 +130,7 @@ didScroll: function(sender) {
 `willBeginDragging` 在用户开始拖动时回调：
 
 ```js
-willBeginDragging: function(sender) {
+willBeginDragging: sender => {
   
 }
 ```
@@ -140,7 +140,7 @@ willBeginDragging: function(sender) {
 `willEndDragging` 在将要结束拖拽时回调：
 
 ```js
-willEndDragging: function(sender, velocity, target) {
+willEndDragging: (sender, velocity, target) => {
 
 }
 ```
@@ -148,7 +148,7 @@ willEndDragging: function(sender, velocity, target) {
 其中 `target` 为滚动停下来时候的位置，可以通过返回一个 `$point` 进行覆盖：
 
 ```js
-willEndDragging: function(sender, velocity, target) {
+willEndDragging: (sender, velocity, target) => {
   return $point(0, 0);
 }
 ```
@@ -158,7 +158,7 @@ willEndDragging: function(sender, velocity, target) {
 `didEndDragging` 在已经结束拖拽时回调：
 
 ```js
-didEndDragging: function(sender, decelerate) {
+didEndDragging: (sender, decelerate) => {
 
 }
 ```
@@ -168,7 +168,7 @@ didEndDragging: function(sender, decelerate) {
 `willBeginDecelerating` 在将要开始减速时回调：
 
 ```js
-willBeginDecelerating: function(sender) {
+willBeginDecelerating: sender => {
 
 }
 ```
@@ -178,7 +178,7 @@ willBeginDecelerating: function(sender) {
 `didEndDecelerating` 在结束减速时回调：
 
 ```js
-didEndDecelerating: function(sender) {
+didEndDecelerating: sender => {
 
 }
 ```
@@ -188,7 +188,7 @@ didEndDecelerating: function(sender) {
 `didEndScrollingAnimation` 也是在结束减速时回调（不同的是他会在非人为触发的滚动时回调）：
 
 ```js
-didEndScrollingAnimation: function(sender) {
+didEndScrollingAnimation: sender => {
 
 }
 ```
@@ -198,7 +198,7 @@ didEndScrollingAnimation: function(sender) {
 `didScrollToTop` 在滚动到顶部时回调：
 
 ```js
-didScrollToTop: function(sender) {
+didScrollToTop: sender => {
 
 }
 ```
